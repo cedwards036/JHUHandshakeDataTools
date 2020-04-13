@@ -1,0 +1,1 @@
+from jhu_handshake_data_tools.src.clean_major import clean_major
