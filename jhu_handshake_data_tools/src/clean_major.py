@@ -6,6 +6,15 @@ from jhu_handshake_data_tools.src.major_prefixes import IN_PREFIXES, SPACE_PREFI
 
 def make_major_cleaning_function(in_prefixes: Set[str], space_prefixes: List[str]) -> Callable[[str], str]:
     def clean_major(major: str) -> str:
+        '''
+        Clean a handshake major
+
+        :param major: a Handshake major to be cleaned
+        :type major: str
+        :return: a cleaned version of the Handshake major, usually with degree
+                 information truncated
+        :rtype: str
+        '''
         return clean_major_with_space_prefix(
             clean_major_with_in_prefix(
                 clean_major_with_colon_prefix(major),
