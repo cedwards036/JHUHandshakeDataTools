@@ -17,7 +17,7 @@ def make_major_cleaning_function(in_prefixes: Set[str], space_prefixes: List[str
         '''
         return clean_major_with_space_prefix(
             clean_major_with_in_prefix(
-                clean_major_with_colon_prefix(major),
+                clean_major_with_colon_prefix(major.strip()),
                 in_prefixes),
             space_prefixes)
 
@@ -33,7 +33,7 @@ def clean_major_with_colon_prefix(major: str) -> str:
 
 def clean_major_with_in_prefix(major: str, lookup: Set[str]) -> str:
     major_components = major.split(' in ', 1)
-    if major_components[0] in lookup:
+    if len(major_components) == 2 and major_components[0] in lookup:
         return major_components[1]
     else:
         return major

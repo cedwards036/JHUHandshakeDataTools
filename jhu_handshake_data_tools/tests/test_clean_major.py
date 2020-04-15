@@ -27,6 +27,10 @@ class TestCleanMajorWithInPrefix(unittest.TestCase):
         lookup = {'credential'}
         self.assertEqual('degree in major', clean_major_with_in_prefix('degree in major', lookup))
 
+    def test_does_not_remove_lefthand_text_if_major_does_not_have_the_word_in_in_it(self):
+        lookup = {'MS'}
+        self.assertEqual('MS', clean_major_with_in_prefix('MS', lookup))
+
 
 class TestCleanMajorWithSpacePrefix(unittest.TestCase):
 
